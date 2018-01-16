@@ -1,5 +1,6 @@
 --title Blockchain
 --heading What they are, how they're used, and other things
+
 --date today
 --author Jeremy Cerise
 --center jcerise@tesla.com
@@ -80,6 +81,9 @@ A blockchain is a distributed database
 ---:
 
 * Peer to Peer, no central servers or controllers
+---:
+
+* Think Bitorrent in the early 2000's
 --newpage What is a blockchain? 2
 --heading A blockchain is a simple data structure
 ---:
@@ -114,7 +118,7 @@ A blockchain is a distributed database
 --heading Lets recap: What is a blockchain?
 ---:
 
-A blockchain is a simple data structure, that is composed of "blocks" of data. Each of these blocks contains data, a cryptographic representation of itself, and reference to the previous block in the list.
+A blockchain is a simple data structure, that is composed of "blocks" of data. Each of these blocks contains data, a cryptographic representation of itself, and reference to the previous block in the list. They are typically distirbuted in a peer to peer fashion.
 
 ---:
 --center Thats it.
@@ -202,4 +206,104 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 * It is a A LOT of work re-prove every newer block in the chain
+--newpage Public key cryptography
+--heading Public key cryptography
+---:
 
+* If everyone can see every transaction on a blockchain, how does it remain anonymous?
+---:
+
+* If every transaction on a blockchain is completely anonymous, how can the sender be verified?
+---:
+
+* Public/Private key pairs, or public key cryptography
+---:
+
+* Using a public and private key pair, a transaction's sender can remain anonymous, while providing a digital signature verifying his/her identity.
+--newpage Digital Signatures
+--heading Digital Signatures
+---:
+
+* Using a public/private key pair, it is possible to create a digital signature
+---:
+
+* A digital signature ensures three things
+---:
+	* The data was not modified at any point after transmission
+---:
+	* The data was created by a certain sender
+---:
+	* The sender cannot deny sending the data
+---:
+--newpage Digital Signatures
+--heading Digital Signatures
+---:
+
+* When a transaction is created, the creator digitally signs it
+---:
+	* Signing algorithm, similar to hashing, that combines transaction data and private key
+---:
+	* Verification algorithm, which verifies signature by combining data, signature, and public key
+---:
+
+(Public/private key pairs are randomly generated using, among other options, elliptic curves, but thats well beyond the scope of this talk)
+--newpage Recap 2
+--heading Lets recap (Because that was a lot of information)
+---:
+
+If we combine all the concepts we just talked about, we have a system that:
+---:
+	* Is distributed
+---:
+	* Is not controlled by any single entity
+---:
+	* Is peer to peer
+---:
+	* Is indelible
+---:
+	* Is verifiable
+---:
+	* Is anonymous
+---:
+	* Is secure
+---:
+
+--center Hopefully, you can see why everyone is excited about blockchains. But, what we do with them?
+--newpage Blockchain uses
+--heading Real world application of blockchains
+---:
+
+Cryptocurrency
+---:
+
+File storage
+---:
+	* FileCoin and the IPFS (Interplanetary File System)
+---:
+
+Crowd funding
+---:
+	* Ethereum and the DAO
+---:
+
+Governance
+---:
+
+Smart contracts
+---:
+
+--newpage Thank you, and Questions
+--heading Thank you for attending!
+
+
+--boldon
+--center Questions?
+--boldoff
+
+
+--center Jeremy Cerise
+--center jcerise@tesla.com
+
+--beginoutput
+--center Opinions expressed in this presentation are solely my own and do not express the views or opinions of my employer.
+--endoutput
