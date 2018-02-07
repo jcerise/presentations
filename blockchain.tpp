@@ -156,8 +156,6 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 * But also easily verifiable
----:
-
 --newpage Hashing
 --heading Proof of work: Hashing
 ---:
@@ -234,7 +232,7 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 * Memory Pool
 ---:
 
- * Smart Contracts
+* Smart Contracts
 --newpage Recap 2
 --heading Lets recap (Because that was a lot of information)
 ---:
@@ -287,6 +285,7 @@ Governance
 
 --center Jeremy Cerise
 --center jcerise@tesla.com
+--center github.com/jcerise
 
 --beginoutput
 --center Opinions expressed in this presentation are solely my own and do not express the views or opinions of my employer.
