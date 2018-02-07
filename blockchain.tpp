@@ -68,6 +68,7 @@ Satoshi Nakamoto and the Bitcoin whitepaper (2009)
 --newpage What is a blockchain?
 --heading What is a blockchain?
 ---:
+
 A blockchain is a distributed database
 ---:
 
@@ -90,6 +91,11 @@ A blockchain is a distributed database
 
 * A blockchain is, at its core, a reverse linked list.
 ---:
+--beginoutput
+--center Item1 -> Item2 -> Item3 -> ... -> ItemN
+--endoutput
+---:
+
 --beginoutput
 --center GenesisBlock <-- Block1 <-- Block2 <-- Block3 ... <-- BlockN
 --endoutput
@@ -118,7 +124,7 @@ A blockchain is a distributed database
 --heading Lets recap: What is a blockchain?
 ---:
 
-A blockchain is a simple data structure, that is composed of "blocks" of data. Each of these blocks contains data, a cryptographic representation of itself, and reference to the previous block in the list. They are typically distirbuted in a peer to peer fashion.
+A blockchain is a simple data structure, that is composed of "blocks" of data. Each of these blocks contains data, a cryptographic representation of itself, and reference to the previous block in the list. They are typically distributed in a peer to peer fashion.
 
 ---:
 --center Thats it.
@@ -127,12 +133,16 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 --center Really.
 --newpage Cryptography
 --heading What makes a blockchain secure?
+---:
 
 --center WTF. You said there was nothing more to blockchains...
 ---:
 
 --center I lied. But not entirely.
 ---:
+
+--center Buckle up, its about to get Computer Sciency.
+--newpage Double Spending
 
 --center Double spending is a problem our simple model of a blockchain will have. How do we prevent that?
 --newpage Proof of work
@@ -161,6 +171,8 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 	* Produces a fixed width output
 ---:
+		* 000000000000000001f942eb4bfa0aeccb6a14c268f4c72d5fff17270da771b9
+---:
 	* Given the same input, will always produce the same output
 ---:
 
@@ -171,7 +183,7 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 --center An Example
 ---:
 
-* Hashing function f(x)
+* Hashing function f(x) (Where f(x) == SHA256, in this case)
 	* Acceptance criteria: output preceeded by six zeroes
 	* For example, 000000f3d4c63d22743ddf
 ---:
@@ -179,7 +191,7 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 * Use a nonce (random number)
 ---:
 
-* f(x), x = binary(block_data) + nonce
+* f(x), x = BINARY(block_data) + nonce
 ---:
 	* Run over and over until output meets criteria
 
@@ -247,6 +259,51 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 (Public/private key pairs are randomly generated using, among other options, elliptic curves, but thats well beyond the scope of this talk)
+--newpage Efficiency
+--heading Efficiency; or, how does each node handle all that data?
+---:
+
+Network nodes should be self-sufficient
+
+---:
+Which means they need a full copy of the blockchain (Just shy of 160GB)
+---:
+	* Network requirements
+---:
+	* Verify transactions and blocks
+---:
+	* Heavy
+--newpage Efficiency 2
+--heading SPV (Simplified Payment Vertification) and Merkle Trees
+---:
+
+SPV Nodes don't verify transactions and blocks, and instead verify individual transactions are present in a block
+
+---:
+They do not require the entire blockchain to function
+
+---:
+	* Uses a Merkle root present in the header data of a block
+---:
+	* Can verify a transactions validity based on Merkle root
+--newpage Merkle Trees
+--heading Merkle Trees (Quick, I promise)
+---:
+				                      Merkle root
+                                                   ----------------
+                                                   |SHA256 (H0+H1)|
+                                                   ----------------
+                                                 /                  \
+                                               /                      \      
+                                  Hash 0                                     Hash 1
+                            -----------------                           -----------------
+                            |SHA256(H00+H01)|                           | SHA256(10+11) |
+                            -----------------                           -----------------
+                          /                   \                       /                   \
+                       Hash 00               Hash 01             Hash 10                 Hash 11
+                  --------------         --------------       --------------          --------------
+                  | SHA256(T1) |         | SHA256(T2) |       | SHA256(T3) |          | SHA256(T4) |
+                  --------------         --------------       --------------          -------------- 
 --newpage Recap 2
 --heading Lets recap (Because that was a lot of information)
 ---:
