@@ -218,92 +218,23 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 * It is a A LOT of work re-prove every newer block in the chain
---newpage Public key cryptography
---heading Public key cryptography
+--newpage Other considerations
+--heading Other considerations
 ---:
 
-* If everyone can see every transaction on a blockchain, how does it remain anonymous?
+* Public Key Cryptography (used for transaction verification in an anonymous fashion)
 ---:
 
-* If every transaction on a blockchain is completely anonymous, how can the sender be verified?
+* Merkle Trees (used to verify individual transactions without knowing about the entire blockchain...~160GB)
 ---:
 
-* Public/Private key pairs, or public key cryptography
+* UTXO Set
 ---:
 
-* Using a public and private key pair, a transaction's sender can remain anonymous, while providing a digital signature verifying his/her identity.
---newpage Digital Signatures
---heading Digital Signatures
+* Memory Pool
 ---:
 
-* Using a public/private key pair, it is possible to create a digital signature
----:
-
-* A digital signature ensures three things
----:
-	* The data was not modified at any point after transmission
----:
-	* The data was created by a certain sender
----:
-	* The sender cannot deny sending the data
----:
---newpage Digital Signatures
---heading Digital Signatures
----:
-
-* When a transaction is created, the creator digitally signs it
----:
-	* Signing algorithm, similar to hashing, that combines transaction data and private key
----:
-	* Verification algorithm, which verifies signature by combining data, signature, and public key
----:
-
-(Public/private key pairs are randomly generated using, among other options, elliptic curves, but thats well beyond the scope of this talk)
---newpage Efficiency
---heading Efficiency; or, how does each node handle all that data?
----:
-
-Network nodes should be self-sufficient
-
----:
-Which means they need a full copy of the blockchain (Just shy of 160GB)
----:
-	* Network requirements
----:
-	* Verify transactions and blocks
----:
-	* Heavy
---newpage Efficiency 2
---heading SPV (Simplified Payment Vertification) and Merkle Trees
----:
-
-SPV Nodes don't verify transactions and blocks, and instead verify individual transactions are present in a block
-
----:
-They do not require the entire blockchain to function
-
----:
-	* Uses a Merkle root present in the header data of a block
----:
-	* Can verify a transactions validity based on Merkle root
---newpage Merkle Trees
---heading Merkle Trees (Quick, I promise)
----:
-				                      Merkle root
-                                                   ----------------
-                                                   |SHA256 (H0+H1)|
-                                                   ----------------
-                                                 /                  \
-                                               /                      \      
-                                  Hash 0                                     Hash 1
-                            -----------------                           -----------------
-                            |SHA256(H00+H01)|                           | SHA256(10+11) |
-                            -----------------                           -----------------
-                          /                   \                       /                   \
-                       Hash 00               Hash 01             Hash 10                 Hash 11
-                  --------------         --------------       --------------          --------------
-                  | SHA256(T1) |         | SHA256(T2) |       | SHA256(T3) |          | SHA256(T4) |
-                  --------------         --------------       --------------          -------------- 
+ * Smart Contracts
 --newpage Recap 2
 --heading Lets recap (Because that was a lot of information)
 ---:
@@ -345,10 +276,6 @@ Crowd funding
 
 Governance
 ---:
-
-Smart contracts
----:
-
 --newpage Thank you, and Questions
 --heading Thank you for attending!
 
