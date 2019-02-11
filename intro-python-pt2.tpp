@@ -152,7 +152,7 @@ $ def add_two_numbers(x, y):
 ---:
 $    new_value = x + y
 ---:
-    return new_value
+$    return new_value
 ---:
 
 $ add_two_numbers(1, 2)
