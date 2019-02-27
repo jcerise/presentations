@@ -1,8 +1,7 @@
 --title Introduction to Python
 --heading Iteration, Functions, Libraries, and more
 --date today
---author Jeremy Cerise
---center mail@jeremyceri.se
+--author Jeremy Cerise and the Roaring Fork Technologists
 
 --newpage Ground Rules
 --heading Ground Rules
