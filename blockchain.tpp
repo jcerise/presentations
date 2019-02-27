@@ -8,25 +8,25 @@
 --newpage What this Presentation is
 --heading Introduction
 What this presentation is
+---:
 --beginoutput
 	* Brief Introduction
-
+---:
 	* What is blockchain?
-
+---:
 		* How do they work
-
+---:
 		* What problems do they solve
-
+---:
 		* Why won't people shut up about them
-
+---:
 	* CryptoCurrency (Bitcoin)
-
+---:
 		* How does Bitcoin utilize a blockchain
-
+---:
 	* Other uses
-
+---:
 	* Questions
-
 --endoutput
 
 --newpage What this Presentation is Not
@@ -56,7 +56,7 @@ What this presentation is not
 * B.S. in Computer Science, Fort Lewis College, Durango CO
 ---:
 
-* Software Engineer at Tesla (Motors) (Energy)
+* Software Engineer at: AppOmni, Tesla(Motors/Energy), SolarCity
 ---:
 
 * Tinkerer of Bitcoin, Litecoin, Ethereum, and general blockchain
@@ -242,6 +242,9 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 * Mining is the act of producing the proof of work for a block
 ---:
 
+* Other miners then verify the proof of work (Remember: proof of work is easy to verify)
+---:
+
 * Once proven, a block is added to the blockchain
 --newpage Proof of work Recap
 --heading How does this secure the blockchain from modifications?
@@ -254,6 +257,37 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 * It is a A LOT of work re-prove every newer block in the chain
+
+--newpage PoW Example
+--heading Proof of Work Example
+1. Miners are currently working on proving block 104
+---:
+
+2. A nefarious actor decides they want to change the already proven and added block 80
+---:
+
+3. The nefarious actor manages to provide the proof of work for the updated block 80
+---:
+
+4. But, since all blocks are cryptographically tied to the previous block, the hashes for every further block needs to be changed.
+---:
+
+5. The nefarious actor now needs to re-prove blocks 81 - 103, and block 104, which the rest of the network is working on. Who do you think will finish first?
+
+--newpage 51% Attacks
+--heading 51% Attacks
+---:
+Miner controls < 50% total computing power
+---:
+
+	* Block modifications can never catch up to the rest of the network
+---:
+
+Miner controls >= 51% total computing power
+---:
+
+	* Blocks can be modified, and eventually can overtake the minority of miners proving and verifying blocks
+
 --newpage Other considerations
 --heading Other considerations
 ---:
@@ -261,7 +295,7 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 * Public Key Cryptography (used for transaction verification in an anonymous fashion)
 ---:
 
-* Merkle Trees (used to verify individual transactions without knowing about the entire blockchain...~160GB)
+* Merkle Trees (used to verify individual transactions without knowing about the entire blockchain...~197GB)
 ---:
 
 * UTXO Set
@@ -271,28 +305,37 @@ A blockchain is a simple data structure, that is composed of "blocks" of data. E
 ---:
 
 * Smart Contracts
+
 --newpage Recap 2
 --heading Lets recap (Because that was a lot of information)
 ---:
 
 If we combine all the concepts we just talked about, we have a system that:
 ---:
+
 	* Is distributed
 ---:
+
 	* Is not controlled by any single entity
 ---:
+
 	* Is peer to peer
 ---:
+
 	* Is indelible
 ---:
+
 	* Is verifiable
 ---:
+
 	* Is anonymous
 ---:
+
 	* Is secure
 ---:
 
 --center Hopefully, you can see why everyone is excited about blockchains. But, what we do with them?
+
 --newpage Blockchain uses
 --heading Real world application of blockchains
 ---:
@@ -302,16 +345,19 @@ Cryptocurrency
 
 File storage
 ---:
+
 	* FileCoin and the IPFS (Interplanetary File System)
 ---:
 
 Crowd funding
 ---:
+
 	* Ethereum and the DAO
 ---:
 
 Governance
 ---:
+
 --newpage Thank you, and Questions
 --heading Thank you for attending!
 
